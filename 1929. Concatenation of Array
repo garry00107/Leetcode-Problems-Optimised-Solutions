@@ -1,0 +1,31 @@
+class Solution {
+public:
+    vector<int> getConcatenation(vector<int>& nums) {
+        int n = nums.size();
+        nums.resize( 2*n);
+        for(int i = 0; i < n; i++){
+            nums[n + i] = nums[i];
+        }
+        return nums;
+    }
+};
+
+//Logic for "Concatenation of Array":
+
+1. Get the original size of the input array (n).
+
+2. Resize the input array to twice its original size (2*n).
+
+3. Iterate through the first half of the array:
+   - Copy each element to its corresponding position 
+     in the second half (nums[n + i] = nums[i]).
+
+4. Return the modified array, which now contains 
+   two concatenated copies of the original array.
+
+Time complexity: O(n)
+Space complexity: O(1) additional space 
+(modification is done in-place)
+
+Key point: This solution modifies the input array directly, 
+avoiding the need for extra space allocation.
