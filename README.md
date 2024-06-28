@@ -1,2 +1,2 @@
 # Leetcode-Problems-Optimised-Solutions
-a code repo for sharing optimised solutions of famous leetcode problems
+Welcome to the LeetCode Optimized Solutions repository! This repo provides clear, well-documented, and optimized solutions to popular LeetCode problems. Ideal for beginners and experienced coders alike, it includes multiple approaches, performance analyses, and tips for understanding and improving problem-solving skills. Contributions are welcome to make this a comprehensive resource for the coding community. Happy coding!
