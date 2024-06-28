@@ -1,0 +1,42 @@
+class Solution {
+public:
+    bool isPowerOfTwo(int n) {
+        float a;
+        if(n==0){
+            return false;
+        }
+        for(int i=0;i<=30;i++){
+            int ans= pow(2,i);
+            if(ans==n){
+                return true;
+            }
+        }
+        return false;
+        
+        
+    }
+};
+
+Logic for "Power of Two":
+
+1. Check if n is 0:
+   - If true, return false (0 is not a power of 2)
+
+2. Iterate from i = 0 to 30:
+   - Calculate 2^i using pow(2,i)
+   - If 2^i equals n, return true
+
+3. If no match found, return false
+
+Time complexity: O(1) 
+(constant time due to fixed loop of 31 iterations)
+
+Space complexity: O(1)
+
+Key points:
+- Uses brute force approach
+- Limits check to 2^30 (max 32-bit integer power of 2)
+- Could be optimized using bitwise operations
+
+Optimization tip: Consider using (n > 0) && ((n & (n-1)) == 0) 
+for O(1) time complexity without loops.
