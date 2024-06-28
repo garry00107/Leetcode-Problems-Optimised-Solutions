@@ -1,0 +1,41 @@
+class Solution {
+public:
+    long long reverse(long long x) {
+       
+        long long rev = 0;
+        long long digit;
+        while (x != 0) {
+            digit = x % 10;
+            // Check for overflow before multiplication
+            if (rev > INT_MAX / 10 || rev < INT_MIN/10 ) {
+                return 0; // Handle overflow by returning max value
+            }
+            rev = (rev * 10) + digit;
+            x /= 10;
+        }
+        return rev;
+    }
+};
+
+
+//Logic for "Reverse Integer":
+
+1. Initialize rev (reversed number) to 0
+
+2. While x is not 0:
+   - Extract last digit: digit = x % 10
+   - Check for potential overflow:
+     - If rev > INT_MAX/10 or rev < INT_MIN/10, return 0
+   - Append digit to rev: rev = (rev * 10) + digit
+   - Remove last digit from x: x /= 10
+
+3. Return rev
+
+Time complexity: O(log x) - number of digits in x
+Space complexity: O(1)
+
+Key points:
+- Uses long long to handle potential overflow during reversal
+- Checks for overflow before each multiplication
+- Returns 0 if overflow would occur
+- Handles both positive and negative integers
