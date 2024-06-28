@@ -1,0 +1,46 @@
+class Solution {
+public:
+    int bitwiseComplement(int n) {
+        if(n==0){
+            return 1;
+        }
+        int mask=0;
+        int m=n;
+        while(m!=0){
+            mask=(mask << 1) | 1;
+            m= m>>1;
+        }
+        int ans;
+        ans= (~n)&mask;
+        return ans;
+
+        
+    }
+};
+
+
+//Logic for "Complement of Base 10 Integer":
+
+1. Handle edge case:
+   - If n is 0, return 1 (complement of 0 is 1)
+
+2. Create a mask:
+   - Initialize mask = 0
+   - While n > 0:
+     - Left shift mask by 1 and OR with 1
+     - Right shift n by 1
+   - This creates a mask with 1's in all bit positions of n
+
+3. Calculate complement:
+   - Take bitwise NOT of n
+   - AND the result with the mask
+
+4. Return the result
+
+Time complexity: O(log n) - based on number of bits in n
+Space complexity: O(1)
+
+Key points:
+- Uses bitwise operations for efficiency
+- Mask ensures only relevant bits are complemented
+- Handles all positive integers correctly
