@@ -1,0 +1,44 @@
+class Solution {
+public:
+    int peakIndexInMountainArray(vector<int>& arr) {
+        int n = arr.size();
+        int s = 0;
+        int e = n - 1;
+        int mid = s + (e - s) / 2;
+        while(s<e){
+            if(arr[mid+1]>arr[mid]){
+                s=mid+1;
+            }
+            else{
+                e=mid;
+            }
+            mid = s + (e - s) / 2;;
+
+        }
+        return s;
+        
+    }
+};
+
+//This code finds the peak index in a "mountain" array, where a mountain array is defined as an array where elements initially increase up to a peak and then decrease. Here's a short explanation of the logic:
+
+Initialization:
+
+n is the size of the array.
+s (start) is initialized to 0.
+e (end) is initialized to n - 1.
+mid is calculated as the midpoint between s and e.
+Binary Search Loop:
+
+The loop runs while s < e.
+Inside the loop:
+If the element right after mid (arr[mid + 1]) is greater than the element at mid (arr[mid]), the peak must be to the right, so s is updated to mid + 1.
+Otherwise, the peak must be to the left or at mid, so e is updated to mid.
+mid is recalculated after each update to s and e.
+Termination:
+
+When s equals e, the loop terminates. At this point, s (or e) is the peak index in the mountain array.
+Return:
+
+The function returns s, which is the peak index.
+This approach leverages binary search to efficiently find the peak index with a time complexity of O(log n).
