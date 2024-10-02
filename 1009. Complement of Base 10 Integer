@@ -1,24 +1,3 @@
-class Solution {
-public:
-    int bitwiseComplement(int n) {
-        if(n==0){
-            return 1;
-        }
-        int mask=0;
-        int m=n;
-        while(m!=0){
-            mask=(mask << 1) | 1;
-            m= m>>1;
-        }
-        int ans;
-        ans= (~n)&mask;
-        return ans;
-
-        
-    }
-};
-
-
 //Logic for "Complement of Base 10 Integer":
 
 1. Handle edge case:
@@ -44,3 +23,28 @@ Key points:
 - Uses bitwise operations for efficiency
 - Mask ensures only relevant bits are complemented
 - Handles all positive integers correctly
+
+
+Code:
+
+class Solution {
+public:
+    int bitwiseComplement(int n) {
+        if(n==0){
+            return 1;
+        }
+        int mask=0;
+        int m=n;
+        while(m!=0){
+            mask=(mask << 1) | 1;
+            m= m>>1;
+        }
+        int ans;
+        ans= (~n)&mask;
+        return ans;
+
+        
+    }
+};
+
+
